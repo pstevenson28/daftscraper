@@ -1,10 +1,16 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
+from daftlistings import Daft
 
-url_to_scrape = "https://www.daft.ie/"
+ daft = Daft()
+ listings = daft.search()
 
-request_page = urlopen(url_to_scrape)
-page_html = request_page.read()
-request_page.close()
+ daft = Daft()
+ daft.set_location(Location.COLLEGE_OF_COMPUTING_AND_TECHNOLOGU_DUBLIN)
+ daft.set_search_type(SearchType.STUDENT_ACCOMMODATION)
 
-html_soup = BeautifulSoup(page_html, 'html.parser')
+ listings = daft.search()
+ daft.search(max_pages=1)
+
+for listing in listings:
+    print(listing.title)
+    print(listing.price)
+    print(listing.daft_link)
