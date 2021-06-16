@@ -1,4 +1,4 @@
-import timeit
+import time
 # from daftlistings import Daft, Location, SearchType
 
 # daft = Daft()
@@ -37,6 +37,20 @@ def algo2(n):
 
 print (algo2(5))
 
-    %timeit algo1(5)
+  # STEP 1: Get start time
+start_time = time.time()
+# Step 2: Run your code you want to time
+result = algo1(100)
+# Step 3: Calculate total time elapsed
+end_time = time.time() - start_time
 
-    %timeit algo2(5)
+print(end_time)
+
+# STEP 1: Get start time
+start_time = time.time()
+# Step 2: Run your code you want to time
+result = algo2(100)
+# Step 3: Calculate total time elapsed
+end_time = time.time() - start_time
+
+print(end_time)
